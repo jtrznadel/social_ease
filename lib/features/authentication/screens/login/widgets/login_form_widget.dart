@@ -18,39 +18,42 @@ class LoginForm extends StatelessWidget {
         children: [
           TextFormField(
             decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.person_outline_outlined),
-                labelText: "E-Mail",
-                hintText: "E-Mail",
-                border: OutlineInputBorder()),
+              prefixIcon: Icon(
+                Icons.person_outline_outlined,
+              ),
+              labelText: "E-Mail",
+            ),
           ),
           const SizedBox(
-            height: tDefaultSize - 15,
+            height: tFormHeight - 15,
           ),
           TextFormField(
             decoration: const InputDecoration(
-                prefixIcon: Icon(Icons.fingerprint_outlined),
+                prefixIcon: Icon(
+                  Icons.fingerprint_outlined,
+                ),
                 labelText: "Password",
-                hintText: "Password",
-                border: OutlineInputBorder(),
                 suffixIcon: IconButton(
                     onPressed: null,
-                    icon: Icon(Icons.remove_red_eye_outlined))),
+                    icon: Icon(
+                      Icons.remove_red_eye_outlined,
+                    ))),
           ),
           const SizedBox(
-            height: tDefaultSize - 20,
+            height: tFormHeight - 20,
           ),
           Align(
               alignment: Alignment.centerRight,
               child: TextButton(
                   style: TextButton.styleFrom(foregroundColor: tPrimaryColor),
                   onPressed: () {},
-                  child: Text("Forget Password?"))),
+                  child: const Text("Forget Password?"))),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: tPrimaryColor),
               onPressed: () {},
-              child: Text("LOGIN"),
+              child: const Text("LOGIN"),
             ),
           )
         ],

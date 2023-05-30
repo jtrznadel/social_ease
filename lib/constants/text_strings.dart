@@ -20,3 +20,8 @@ const String tWelcomeSubTitle =
 const String tLoginTitle = "Glad to see You again!";
 const String tLoginSubTitle =
     "Embrace the Power of Connection: Reunite and ignite positive change in our social assistance community.";
+
+// -- Sign Up Screen Text
+const String tSignUpTitle = "Join The Movement";
+const String tSignUpSubTitle =
+    "Enroll now to be part of our social assistance community!";

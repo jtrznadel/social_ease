@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:social_ease/constants/colors.dart';
+import 'package:social_ease/features/authentication/screens/signup/signup_screen.dart';
 
 import '../../../../../constants/image_strings.dart';
 import '../../../../../constants/sizes.dart';
@@ -15,7 +17,7 @@ class LoginFooterWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const Text("OR"),
-        SizedBox(
+        const SizedBox(
           height: tDefaultSize - 10,
         ),
         SizedBox(
@@ -27,10 +29,10 @@ class LoginFooterWidget extends StatelessWidget {
                 height: 20,
               ),
               style: OutlinedButton.styleFrom(foregroundColor: tPrimaryColor),
-              label: Text("Sign-In with Google")),
+              label: const Text("Sign-In with Google")),
         ),
         TextButton(
-            onPressed: () {},
+            onPressed: () => Get.to(() => const SignUpScreen()),
             child: Text.rich(TextSpan(
                 text: "Don't have an Account? ",
                 style: Theme.of(context).textTheme.bodyMedium,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:social_ease/constants/colors.dart';
 import 'package:social_ease/constants/sizes.dart';
 import 'package:social_ease/constants/text_strings.dart';
 import 'package:social_ease/features/authentication/screens/login/login_screen.dart';
@@ -16,10 +15,10 @@ class WelcomeScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(tDefaultSize),
+        padding: const EdgeInsets.all(tDefaultSize),
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Container(
+          SizedBox(
               height: size.height * 0.5,
               child: SvgPicture.asset(tWelcomeImage)),
           Column(
@@ -41,30 +40,16 @@ class WelcomeScreen extends StatelessWidget {
               Expanded(
                 child: OutlinedButton(
                     onPressed: () => Get.to(() => const LoginScreen()),
-                    style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(),
-                        foregroundColor: tPrimaryColor,
-                        side: BorderSide(color: tPrimaryColor),
-                        padding: EdgeInsets.symmetric(vertical: tButtonHeight)),
                     child: Text(
                       "Login".toUpperCase(),
                     )),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10.0,
               ),
               Expanded(
                   child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(),
-                          foregroundColor: tWhiteColor,
-                          backgroundColor: tPrimaryColor,
-                          side: BorderSide(color: tPrimaryColor),
-                          padding:
-                              EdgeInsets.symmetric(vertical: tButtonHeight)),
-                      child: Text("SignUp".toUpperCase())))
+                      onPressed: () {}, child: Text("SignUp".toUpperCase())))
             ],
           )
         ]),

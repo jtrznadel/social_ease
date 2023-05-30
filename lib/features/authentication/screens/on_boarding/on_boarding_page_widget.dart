@@ -19,7 +19,7 @@ class OnBoardingPageWidget extends StatelessWidget {
       color: model.bgColor,
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-        Container(
+        SizedBox(
             height: size.height * 0.5, child: SvgPicture.asset(model.image)),
         Column(
           children: [

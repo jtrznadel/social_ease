@@ -7,7 +7,7 @@ import 'package:social_ease/features/authentication/screens/welcome/welcome_scre
 
 //ignore: must_be_immutable
 class OnBoardingScreen extends StatelessWidget {
-  OnBoardingScreen({super.key});
+  const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,12 @@ class OnBoardingScreen extends StatelessWidget {
             liquidController: obController.controller,
             onPageChangeCallback: obController.onPageChangeCallback,
             pages: obController.pages,
-            slideIconWidget: Icon(Icons.arrow_back_ios_new),
+            slideIconWidget: const Icon(Icons.arrow_back_ios_new),
             enableSideReveal: true,
           ),
           Obx(() {
             if (obController.currentPage.value == 2) {
-              return MoveToWelcomeButton();
+              return const MoveToWelcomeButton();
             } else {
               return Container();
             }
@@ -68,7 +68,7 @@ class MoveToWelcomeButton extends StatelessWidget {
     return Positioned(
         bottom: 50.0,
         child: OutlinedButton(
-          onPressed: () => Get.to(() => WelcomeScreen()),
+          onPressed: () => Get.to(() => const WelcomeScreen()),
           style: ElevatedButton.styleFrom(
               side: const BorderSide(color: Colors.black12),
               shape: const CircleBorder(),

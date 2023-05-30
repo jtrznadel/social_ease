@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:social_ease/utilities/widget_themes/elevated_button_theme.dart';
+import 'package:social_ease/utilities/widget_themes/outlined_button_theme.dart';
+import 'package:social_ease/utilities/widget_themes/text_field_theme.dart';
 
 class TAppTheme {
   TAppTheme._();
@@ -8,17 +11,22 @@ class TAppTheme {
       brightness: Brightness.light,
       textTheme: TextTheme(
           titleMedium: GoogleFonts.montserrat(
-              color: Color(0xFFF9A826), fontWeight: FontWeight.bold),
+              color: const Color(0xFFF9A826), fontWeight: FontWeight.bold),
           titleLarge: GoogleFonts.montserrat(
-              color: Color(0xFFF9A826), fontWeight: FontWeight.bold),
+              color: const Color(0xFFF9A826), fontWeight: FontWeight.bold),
           bodyMedium: GoogleFonts.montserrat(color: Colors.black),
           bodyLarge: GoogleFonts.montserrat(color: Colors.black),
           bodySmall: GoogleFonts.montserrat(color: Colors.black)),
-      elevatedButtonTheme:
-          ElevatedButtonThemeData(style: ElevatedButton.styleFrom()));
+      elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
+      outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTheme,
+      inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme);
+
   static ThemeData darkTheme = ThemeData(
       brightness: Brightness.dark,
       textTheme: TextTheme(
           titleMedium: GoogleFonts.montserrat(color: Colors.white70),
-          bodyMedium: GoogleFonts.montserrat(color: Colors.white60)));
+          bodyMedium: GoogleFonts.montserrat(color: Colors.white60)),
+      elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
+      outlinedButtonTheme: TOutlinedButtonTheme.darkOutlinedButtonTheme,
+      inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme);
 }
