@@ -23,22 +23,13 @@ class OnBoardingScreen extends StatelessWidget {
             slideIconWidget: Icon(Icons.arrow_back_ios_new),
             enableSideReveal: true,
           ),
-          // Positioned(
-          //     bottom: 50.0,
-          //     child: OutlinedButton(
-          //       onPressed: () {},
-          //       style: ElevatedButton.styleFrom(
-          //           side: const BorderSide(color: Colors.black12),
-          //           shape: const CircleBorder(),
-          //           padding: const EdgeInsets.all(20),
-          //           foregroundColor: Colors.white),
-          //       child: Container(
-          //         padding: const EdgeInsets.all(20.0),
-          //         decoration: const BoxDecoration(
-          //             color: tDarkColor, shape: BoxShape.circle),
-          //         child: const Icon(Icons.arrow_forward_ios),
-          //       ),
-          //     )),
+          Obx(() {
+            if (obController.currentPage.value == 2) {
+              return MoveToWelcomeButton();
+            } else {
+              return Container();
+            }
+          }),
           Positioned(
             top: 50,
             right: 20,
@@ -63,5 +54,33 @@ class OnBoardingScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class MoveToWelcomeButton extends StatelessWidget {
+  const MoveToWelcomeButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+        bottom: 50.0,
+        child: OutlinedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/welcome');
+          },
+          style: ElevatedButton.styleFrom(
+              side: const BorderSide(color: Colors.black12),
+              shape: const CircleBorder(),
+              padding: const EdgeInsets.all(20),
+              foregroundColor: Colors.white),
+          child: Container(
+            padding: const EdgeInsets.all(20.0),
+            decoration: const BoxDecoration(
+                color: Colors.black45, shape: BoxShape.circle),
+            child: const Icon(Icons.arrow_forward_ios),
+          ),
+        ));
   }
 }

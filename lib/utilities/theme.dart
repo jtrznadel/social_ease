@@ -7,7 +7,10 @@ class TAppTheme {
   static ThemeData lightTheme = ThemeData(
       brightness: Brightness.light,
       textTheme: TextTheme(
-          titleMedium: GoogleFonts.montserrat(color: Colors.black87),
+          titleMedium: GoogleFonts.montserrat(
+              color: Color(0xFFF9A826), fontWeight: FontWeight.bold),
+          titleLarge: GoogleFonts.montserrat(
+              color: Color(0xFFF9A826), fontWeight: FontWeight.bold),
           bodyMedium: GoogleFonts.montserrat(color: Colors.black87)),
       elevatedButtonTheme:
           ElevatedButtonThemeData(style: ElevatedButton.styleFrom()));
