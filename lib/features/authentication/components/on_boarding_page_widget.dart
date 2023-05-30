@@ -13,13 +13,14 @@ class OnBoardingPageWidget extends StatelessWidget {
   final OnBoardingModel model;
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.all(tDefaultSize),
       color: model.bgColor,
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         Container(
-            height: model.height * 0.5, child: SvgPicture.asset(model.image)),
+            height: size.height * 0.5, child: SvgPicture.asset(model.image)),
         Column(
           children: [
             Text(
@@ -27,7 +28,7 @@ class OnBoardingPageWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            SizedBox(
+            const SizedBox(
               height: 5.0,
             ),
             Text(
@@ -38,7 +39,7 @@ class OnBoardingPageWidget extends StatelessWidget {
           ],
         ),
         Text(model.counterIndicator),
-        SizedBox(height: model.height * 0.1)
+        SizedBox(height: size.height * 0.1)
       ]),
     );
   }
