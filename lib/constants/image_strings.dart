@@ -8,3 +8,5 @@ const String tOnBoardingImage3 =
 
 // -- Welcome Screen Images
 const String tWelcomeImage = "assets/images/welcome_images/welcome_image1.svg";
+
+const String tGoogleLogo = "assets/logos/googleLogo.png";

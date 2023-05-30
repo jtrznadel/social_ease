@@ -15,3 +15,8 @@ const String tOnBoardingSubTitle3 =
 const String tWelcomeTitle = "Support at Your Fingertips";
 const String tWelcomeSubTitle =
     "Instantly access a world of assistance and care through our mobile app.";
+
+// -- Login Screen Text
+const String tLoginTitle = "Glad to see You again!";
+const String tLoginSubTitle =
+    "Embrace the Power of Connection: Reunite and ignite positive change in our social assistance community.";

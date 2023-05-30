@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:social_ease/constants/colors.dart';
 import 'package:social_ease/constants/sizes.dart';
 import 'package:social_ease/constants/text_strings.dart';
+import 'package:social_ease/features/authentication/screens/login/login_screen.dart';
 
 import '../../../../constants/image_strings.dart';
 
@@ -38,7 +40,7 @@ class WelcomeScreen extends StatelessWidget {
             children: [
               Expanded(
                 child: OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const LoginScreen()),
                     style: OutlinedButton.styleFrom(
                         shape: RoundedRectangleBorder(),
                         foregroundColor: tPrimaryColor,

@@ -4,7 +4,7 @@ import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/image_strings.dart';
 import '../../../constants/text_strings.dart';
-import '../components/on_boarding_page_widget.dart';
+import '../screens/on_boarding/on_boarding_page_widget.dart';
 import '../models/model_on_boarding.dart';
 
 class OnBoardingController extends GetxController {
@@ -41,7 +41,8 @@ class OnBoardingController extends GetxController {
     )
   ];
 
-  onPageChangeCallback(int activePageIndex) => currentPage.value = activePageIndex;
+  onPageChangeCallback(int activePageIndex) =>
+      currentPage.value = activePageIndex;
 
   skip() => controller.jumpToPage(page: 2);
 }

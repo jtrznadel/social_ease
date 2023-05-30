@@ -11,7 +11,9 @@ class TAppTheme {
               color: Color(0xFFF9A826), fontWeight: FontWeight.bold),
           titleLarge: GoogleFonts.montserrat(
               color: Color(0xFFF9A826), fontWeight: FontWeight.bold),
-          bodyMedium: GoogleFonts.montserrat(color: Colors.black87)),
+          bodyMedium: GoogleFonts.montserrat(color: Colors.black),
+          bodyLarge: GoogleFonts.montserrat(color: Colors.black),
+          bodySmall: GoogleFonts.montserrat(color: Colors.black)),
       elevatedButtonTheme:
           ElevatedButtonThemeData(style: ElevatedButton.styleFrom()));
   static ThemeData darkTheme = ThemeData(

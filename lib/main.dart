@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:social_ease/features/authentication/screens/on_boarding/on_boarding_screen.dart';
-import 'package:social_ease/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:social_ease/utilities/theme.dart';
 
 void main() {
@@ -13,16 +13,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => OnBoardingScreen(),
-        '/welcome': (context) => WelcomeScreen()
-      },
+      home: OnBoardingScreen(),
     );
   }
 }

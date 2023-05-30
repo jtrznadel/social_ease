@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants/sizes.dart';
-import '../models/model_on_boarding.dart';
+import '../../../../constants/sizes.dart';
+import '../../models/model_on_boarding.dart';
 
 class OnBoardingPageWidget extends StatelessWidget {
   const OnBoardingPageWidget({

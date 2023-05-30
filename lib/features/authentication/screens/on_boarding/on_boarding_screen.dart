@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:social_ease/features/authentication/controllers/on_boarding_controller.dart';
+import 'package:social_ease/features/authentication/screens/welcome/welcome_screen.dart';
 
 //ignore: must_be_immutable
 class OnBoardingScreen extends StatelessWidget {
@@ -67,9 +68,7 @@ class MoveToWelcomeButton extends StatelessWidget {
     return Positioned(
         bottom: 50.0,
         child: OutlinedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/welcome');
-          },
+          onPressed: () => Get.to(() => WelcomeScreen()),
           style: ElevatedButton.styleFrom(
               side: const BorderSide(color: Colors.black12),
               shape: const CircleBorder(),
