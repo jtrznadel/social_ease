@@ -1,3 +1,4 @@
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:social_ease/common_widgets/form/form_header_widget.dart';
 import 'package:social_ease/constants/colors.dart';
@@ -7,6 +8,15 @@ import 'package:social_ease/constants/text_strings.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
+
+  triggerNotification() {
+    AwesomeNotifications().createNotification(
+        content: NotificationContent(
+            id: 10,
+            channelKey: 'basic_channel',
+            title: "Password Reset",
+            body: "Password has been successfuly reseted"));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +66,10 @@ class ResetPasswordScreen extends StatelessWidget {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: tPrimaryColor),
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          triggerNotification();
+                          Navigator.pop(context);
+                        },
                         child: const Text("RESET PASSWORD"),
                       ),
                     )
