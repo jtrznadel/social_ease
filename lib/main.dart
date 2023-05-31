@@ -1,10 +1,16 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 import 'package:social_ease/features/authentication/screens/on_boarding/on_boarding_screen.dart';
+import 'package:social_ease/firebase_options.dart';
+import 'package:social_ease/repository/authentication_repository/authentication_repository.dart';
 import 'package:social_ease/utilities/theme.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then((value) => Get.put(AuthenticationRepository()));
   AwesomeNotifications().initialize(
       null,
       [

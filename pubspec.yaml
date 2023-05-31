@@ -42,6 +42,8 @@ dependencies:
   get: ^4.6.5
   flutter_otp_text_field: ^1.1.1
   awesome_notifications: ^0.7.4+1
+  firebase_core: ^2.13.1
+  firebase_auth: ^4.6.2
 
 dev_dependencies:
   flutter_test:
