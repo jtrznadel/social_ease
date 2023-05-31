@@ -33,4 +33,7 @@ const String tForgotPasswordSubTitle =
 
 const String tForgotPasswordSuccessTitle = "Almost done!";
 const String tForgotPasswordSuccessSubTitle =
-    "We have successfully sent a link to reset a password. Please check it out.";
+    "We have successfully sent a code to provided \nE-Mail. Please enter it below.";
+const String tForgotPasswordResetTitle = "Reset password";
+const String tForgotPasswordResetSubTitle =
+    "You're almost finished. Create a secure password below, entering it twice for confirmation";

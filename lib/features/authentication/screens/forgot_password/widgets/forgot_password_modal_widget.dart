@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:social_ease/constants/colors.dart';
+import 'package:social_ease/features/authentication/screens/forgot_password/reset_password_screen.dart';
 
 import '../../../../../constants/image_strings.dart';
 import '../../../../../constants/sizes.dart';
@@ -31,7 +35,7 @@ class _ForgotPasswordModalWidgetState extends State<ForgotPasswordModalWidget> {
             SizedBox(
               height: size.height * 0.15,
               child: SvgPicture.asset(
-                  !_flag ? tForgotPasswordImage : tWelcomeImage),
+                  !_flag ? tForgotPasswordImage : tForgotPasswordSuccessImage),
             ),
             const SizedBox(
               height: 10,
@@ -55,9 +59,24 @@ class _ForgotPasswordModalWidgetState extends State<ForgotPasswordModalWidget> {
                         labelText: "E-mail",
                         prefixIcon: Icon(Icons.email_outlined)),
                   ))
-                : Container(),
+                : Column(
+                    children: [
+                      OtpTextField(
+                        numberOfFields: 4,
+                        fillColor: tSecondaryColor.withOpacity(0.1),
+                        filled: true,
+                      ),
+                      TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                              foregroundColor: tPrimaryColor),
+                          child: const Text(
+                            "Resend code",
+                          )),
+                    ],
+                  ),
             const SizedBox(
-              height: tFormHeight,
+              height: tFormHeight - 20,
             ),
             SizedBox(
                 width: double.infinity,
@@ -65,15 +84,14 @@ class _ForgotPasswordModalWidgetState extends State<ForgotPasswordModalWidget> {
                     onPressed: () {
                       if (_flag) {
                         Navigator.pop(context);
-                        Future.delayed(
-                            const Duration(milliseconds: 100), () {});
+                        Get.to(() => const ResetPasswordScreen());
                       } else {
                         setState(() {
                           _flag = !_flag;
                         });
                       }
                     },
-                    child: Text(!_flag ? "Submit" : "OK")))
+                    child: const Text("Submit")))
           ],
         ),
       ),

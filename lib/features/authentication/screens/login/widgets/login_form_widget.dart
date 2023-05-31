@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_ease/constants/colors.dart';
 
 import '../../../../../constants/sizes.dart';
-import 'forgot_password_modal_widget.dart';
+import '../../forgot_password/widgets/forgot_password_modal_widget.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
