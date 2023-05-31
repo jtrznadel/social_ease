@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_ease/constants/colors.dart';
 
 import '../../../../../constants/sizes.dart';
+import 'forgot_password_modal_widget.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -45,9 +46,17 @@ class LoginForm extends StatelessWidget {
           Align(
               alignment: Alignment.centerRight,
               child: TextButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (_) => const ForgotPasswordModalWidget());
+                  },
                   style: TextButton.styleFrom(foregroundColor: tPrimaryColor),
-                  onPressed: () {},
-                  child: const Text("Forget Password?"))),
+                  child: const Text("Forgot Password?"))),
+          const SizedBox(
+            height: tFormHeight,
+          ),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(

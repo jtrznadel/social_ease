@@ -9,4 +9,9 @@ const String tOnBoardingImage3 =
 // -- Welcome Screen Images
 const String tWelcomeImage = "assets/images/welcome_images/welcome_image1.svg";
 
+// -- Generic Images
 const String tGoogleLogo = "assets/logos/googleLogo.png";
+
+// -- Forgot Password Images
+const String tForgotPasswordImage =
+    "assets/images/forgot_password_images/forgot_password_image.svg";

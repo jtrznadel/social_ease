@@ -25,3 +25,12 @@ const String tLoginSubTitle =
 const String tSignUpTitle = "Join The Movement";
 const String tSignUpSubTitle =
     "Enroll now to be part of our social assistance community!";
+
+// -- Forgot Password Modal Text
+const String tForgotPasswordTitle = "Forgot Password?";
+const String tForgotPasswordSubTitle =
+    "Don't worry it happens! Please enter the E-mail address associated with your account.";
+
+const String tForgotPasswordSuccessTitle = "Almost done!";
+const String tForgotPasswordSuccessSubTitle =
+    "We have successfully sent a link to reset a password. Please check it out.";

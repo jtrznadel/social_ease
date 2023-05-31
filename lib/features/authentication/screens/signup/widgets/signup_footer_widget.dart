@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:social_ease/constants/colors.dart';
-import 'package:social_ease/features/authentication/screens/signup/signup_screen.dart';
 
+import '../../../../../constants/colors.dart';
 import '../../../../../constants/image_strings.dart';
 import '../../../../../constants/sizes.dart';
+import '../../login/login_screen.dart';
 
-class LoginFooterWidget extends StatelessWidget {
-  const LoginFooterWidget({
+class SignUpFooterWidget extends StatelessWidget {
+  const SignUpFooterWidget({
     super.key,
   });
 
@@ -32,13 +32,13 @@ class LoginFooterWidget extends StatelessWidget {
               label: const Text("SIGN-IN WITH GOOGLE")),
         ),
         TextButton(
-            onPressed: () => Get.to(() => const SignUpScreen()),
+            onPressed: () => Get.to(() => const LoginScreen()),
             child: Text.rich(TextSpan(
-                text: "Don't have an Account? ",
+                text: "Already have an Account? ",
                 style: Theme.of(context).textTheme.bodyMedium,
                 children: [
                   TextSpan(
-                      text: "SignUp",
+                      text: "Login now",
                       style: Theme.of(context).textTheme.titleMedium)
                 ])))
       ],

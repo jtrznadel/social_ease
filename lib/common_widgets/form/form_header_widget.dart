@@ -5,11 +5,13 @@ import '../../constants/sizes.dart';
 class FormHeaderWidget extends StatelessWidget {
   const FormHeaderWidget(
       {super.key,
+      required this.imageScale,
       required this.image,
       required this.title,
       required this.subTitle});
 
   final String image, title, subTitle;
+  final double imageScale;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +19,9 @@ class FormHeaderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: tDefaultSize),
-        SizedBox(height: size.height * 0.2, child: SvgPicture.asset(image)),
+        const SizedBox(height: tDefaultSize + 10),
+        SizedBox(
+            height: size.height * imageScale, child: SvgPicture.asset(image)),
         const SizedBox(height: tDefaultSize),
         Text(
           title,

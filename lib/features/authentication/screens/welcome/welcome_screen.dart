@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:social_ease/constants/sizes.dart';
 import 'package:social_ease/constants/text_strings.dart';
 import 'package:social_ease/features/authentication/screens/login/login_screen.dart';
+import 'package:social_ease/features/authentication/screens/signup/signup_screen.dart';
 
 import '../../../../constants/image_strings.dart';
 
@@ -40,8 +41,8 @@ class WelcomeScreen extends StatelessWidget {
               Expanded(
                 child: OutlinedButton(
                     onPressed: () => Get.to(() => const LoginScreen()),
-                    child: Text(
-                      "Login".toUpperCase(),
+                    child: const Text(
+                      "LOGIN",
                     )),
               ),
               const SizedBox(
@@ -49,7 +50,8 @@ class WelcomeScreen extends StatelessWidget {
               ),
               Expanded(
                   child: ElevatedButton(
-                      onPressed: () {}, child: Text("SignUp".toUpperCase())))
+                      onPressed: () => Get.to(() => const SignUpScreen()),
+                      child: const Text("SIGNUP")))
             ],
           )
         ]),
