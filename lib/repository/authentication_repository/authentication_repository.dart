@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:social_ease/features/authentication/screens/login/login_screen.dart';
-import 'package:social_ease/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:social_ease/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:social_ease/repository/authentication_repository/exceptions/signup_email_password_failure.dart';
+
+import '../../features/core/navigation_profile.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -21,7 +22,7 @@ class AuthenticationRepository extends GetxController {
   _setInitialScreen(User? user) {
     user == null
         ? Get.offAll(() => const WelcomeScreen())
-        : Get.offAll(() => const OnBoardingScreen());
+        : Get.offAll(() => const NavigationProfile());
   }
 
   Future<void> createUserWithEmailAndPassword(String email, String password) async {

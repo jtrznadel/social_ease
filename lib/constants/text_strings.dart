@@ -37,3 +37,6 @@ const String tForgotPasswordSuccessSubTitle =
 const String tForgotPasswordResetTitle = "Reset password";
 const String tForgotPasswordResetSubTitle =
     "You're almost finished. Create a secure password below, entering it twice for confirmation";
+
+// -- Dashboard Text
+const String tAppName = "socialEase";
