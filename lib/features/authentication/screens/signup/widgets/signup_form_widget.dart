@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_ease/features/authentication/controllers/signup_controller.dart';
+import 'package:social_ease/models/user_model.dart';
 
 import '../../../../../constants/sizes.dart';
 import '../../login/login_screen.dart';
@@ -30,14 +31,12 @@ class SignUpFormWidget extends StatelessWidget {
               TextFormField(
                   controller: controller.email,
                   decoration: const InputDecoration(
-                      label: Text("E-Mail"),
-                      prefixIcon: Icon(Icons.email_outlined))),
+                      label: Text("E-Mail"), prefixIcon: Icon(Icons.email_outlined))),
               const SizedBox(height: tFormHeight - 20),
               TextFormField(
                   controller: controller.phoneNumber,
                   decoration: const InputDecoration(
-                      label: Text("Phone Number"),
-                      prefixIcon: Icon(Icons.phone))),
+                      label: Text("Phone Number"), prefixIcon: Icon(Icons.phone))),
               const SizedBox(height: tFormHeight - 20),
               TextFormField(
                   controller: controller.password,
@@ -60,9 +59,14 @@ class SignUpFormWidget extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        SignUpController.instance.registerUser(
-                            controller.email.text.trim(),
-                            controller.password.text.trim());
+                        SignUpController.instance.registerUser(UserModel(
+                            id: '',
+                            userName: controller.username.text.trim(),
+                            firstName: '',
+                            lastName: '',
+                            email: controller.email.text.trim(),
+                            phoneNumber: controller.phoneNumber.text.trim(),
+                            password: controller.password.text.trim()));
                       }
                       Get.to(() => const LoginScreen());
                     },

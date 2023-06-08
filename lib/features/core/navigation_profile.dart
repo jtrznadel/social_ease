@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:social_ease/constants/colors.dart';
 import 'package:social_ease/features/core/screens/dashboard/dashboard_screen.dart';
 import 'package:social_ease/features/core/screens/explore/explore_screen.dart';
-import 'package:social_ease/features/core/screens/message_centre/message_centre_screen.dart';
+import 'package:social_ease/features/core/screens/message_center/message_center_screen.dart';
 import 'package:social_ease/features/core/screens/search/search_screen.dart';
 import 'package:social_ease/features/core/screens/user_profile/user_profile_screen.dart';
 
@@ -57,7 +57,7 @@ class _NavigationProfile extends State<NavigationProfile> {
           SearchScreen(),
           ExploreScreen(),
           DashboardScreen(),
-          MessageCentreScreen(),
+          MessageCenterScreen(),
           UserProfileScreen()
         ],
         onPageChanged: (int index) {

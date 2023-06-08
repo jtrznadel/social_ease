@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MessageCentreScreen extends StatelessWidget {
-  const MessageCentreScreen({super.key});
+class MessageCenterScreen extends StatelessWidget {
+  const MessageCenterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

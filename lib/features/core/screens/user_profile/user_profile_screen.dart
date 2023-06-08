@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_ease/constants/sizes.dart';
 import 'package:social_ease/features/authentication/controllers/login_controller.dart';
+import 'package:social_ease/features/core/screens/user_profile/update_user_profile_screen.dart';
 import 'package:social_ease/features/core/screens/user_profile/widgets/user_avatar_widget.dart';
 import 'package:social_ease/features/core/screens/user_profile/widgets/user_profile_button_widget.dart';
 
 class UserProfileScreen extends StatelessWidget {
   const UserProfileScreen({super.key});
-
-  void emptyFunction() {
-    // Empty function
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +22,9 @@ class UserProfileScreen extends StatelessWidget {
             height: tDashboardPadding * 2,
           ),
           UserProfileButtonWidget(
-            title: "My Account",
+            title: "Edit Profile",
             icon: const Icon(Icons.account_circle_outlined, color: Colors.black),
-            press: () {},
+            press: () => Get.to(const UpdateUserProfileScreen()),
           ),
           UserProfileButtonWidget(
             title: "Settings",
