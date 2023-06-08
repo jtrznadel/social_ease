@@ -60,4 +60,10 @@ class AuthenticationRepository extends GetxController {
   }
 
   Future<void> logout() async => await _auth.signOut();
+
+  String getUserId() {
+    User? user = FirebaseAuth.instance.currentUser;
+    String userId = user?.uid ?? '';
+    return userId;
+  }
 }
