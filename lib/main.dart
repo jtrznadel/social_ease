@@ -9,8 +9,9 @@ import 'package:social_ease/utilities/theme.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      .then((value) => Get.put(AuthenticationRepository()));
+  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then((value) {
+    Get.put(AuthenticationRepository());
+  });
   AwesomeNotifications().initialize(
       null,
       [
