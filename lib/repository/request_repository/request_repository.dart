@@ -17,4 +17,13 @@ class RequestRepository extends GetxController {
     final requestData = snapshot.docs.map((e) => RequestModel.fromSnapshot(e)).toList();
     return requestData;
   }
+
+  Future<List<RequestModel>> getRequestsByCategory(category) async {
+    final snapshot = await FirebaseFirestore.instance
+        .collection("requests")
+        .where("category", isEqualTo: category)
+        .get();
+    final requestData = snapshot.docs.map((e) => RequestModel.fromSnapshot(e)).toList();
+    return requestData;
+  }
 }

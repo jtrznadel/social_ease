@@ -21,4 +21,11 @@ class UserRepository extends GetxController {
       'phoneNumber': user.phoneNumber,
     });
   }
+
+  Future<String> getFirstname(String userId) async {
+    final snapshot = await _db.collection("users").doc(userId).get();
+    final userData = UserModel.fromSnaphot(snapshot);
+    final firstname = userData.firstName.toString();
+    return firstname;
+  }
 }

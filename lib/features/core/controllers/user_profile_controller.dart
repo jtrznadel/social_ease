@@ -25,6 +25,13 @@ class UserProfileController extends GetxController {
     }
   }
 
+  getFirstname() {
+    final userId = _authRepo.firebaseUser.value?.uid;
+    if (userId != null) {
+      return _userRepo.getFirstname(userId);
+    }
+  }
+
   updateRecord(UserModel user) async {
     await _userRepo.updateUserRecord(user);
     Get.back();

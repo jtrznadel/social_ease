@@ -91,7 +91,6 @@ class _RequestCreateScreenState extends State<RequestCreateScreen> {
                     'Child and youth support',
                     'Disability support',
                     'Refugee and immigrant aid',
-                    'Crisis response',
                     'Healthcare assistance',
                     'Social and economic support'
                     // Dodaj więcej kategorii, jeśli jest to konieczne

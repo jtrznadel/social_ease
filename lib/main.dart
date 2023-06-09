@@ -7,9 +7,10 @@ import 'package:social_ease/firebase_options.dart';
 import 'package:social_ease/repository/authentication_repository/authentication_repository.dart';
 import 'package:social_ease/utilities/theme.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform).then((value) {
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+      .then((value) {
     Get.put(AuthenticationRepository());
   });
   AwesomeNotifications().initialize(

@@ -26,4 +26,8 @@ class RequestController extends GetxController {
     final userId = _authRepo.getUserId();
     return _requestRepo.getUserRequests(userId);
   }
+
+  getRequestsByCategory(String category) {
+    return _requestRepo.getRequestsByCategory(category);
+  }
 }
