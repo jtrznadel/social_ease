@@ -37,43 +37,41 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
-    return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.all(tDashboardPadding),
-        width: double.infinity,
-        height: double.infinity,
-        child: Column(
-          children: [
-            AnimSearchBar(
-              width: 500,
-              textController: controller,
-              onSuffixTap: () {
-                setState(() {
-                  controller.clear();
-                });
-              },
-              onSubmitted: (String value) {},
-            ),
-            Expanded(
-              child: GridView.builder(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                ),
-                itemCount: categories.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return CategoryTile(
-                    categoryName: categories[index],
-                    icon: icons[index],
-                    onTap: () {
-                      // Wywołaj funkcję po naciśnięciu kafelka
-                      Get.to(() => RequestsScreen(category: categories[index]));
-                    },
-                  );
-                },
+    return Container(
+      padding: const EdgeInsets.all(tDashboardPadding),
+      width: double.infinity,
+      height: double.infinity,
+      child: Column(
+        children: [
+          AnimSearchBar(
+            width: 500,
+            textController: controller,
+            onSuffixTap: () {
+              setState(() {
+                controller.clear();
+              });
+            },
+            onSubmitted: (String value) {},
+          ),
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
               ),
+              itemCount: categories.length,
+              itemBuilder: (BuildContext context, int index) {
+                return CategoryTile(
+                  categoryName: categories[index],
+                  icon: icons[index],
+                  onTap: () {
+                    // Wywołaj funkcję po naciśnięciu kafelka
+                    Get.to(() => RequestsScreen(category: categories[index]));
+                  },
+                );
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

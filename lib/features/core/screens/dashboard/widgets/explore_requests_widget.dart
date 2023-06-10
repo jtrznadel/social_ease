@@ -6,6 +6,7 @@ import 'package:social_ease/features/core/controllers/request_controller.dart';
 import 'package:social_ease/models/request_model.dart';
 
 import '../../../../../constants/colors.dart';
+import '../request_create_screen.dart';
 
 class ExploreRequestsWidget extends StatelessWidget {
   const ExploreRequestsWidget({
@@ -83,7 +84,18 @@ class ExploreRequestsWidget extends StatelessWidget {
             }
           },
         ),
-      )
+      ),
+      TextButton.icon(
+        onPressed: () => Get.to(const RequestCreateScreen()),
+        icon: const Icon(
+          Icons.add_circle_outline_rounded,
+          color: tPrimaryColor,
+        ),
+        label: Text(
+          "Add new request",
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+      ),
     ]);
   }
 }
