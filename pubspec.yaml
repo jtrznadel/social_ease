@@ -50,6 +50,7 @@ dependencies:
   geolocator: ^9.0.2
   geocoding: ^2.1.0
   anim_search_bar: ^2.0.3
+  accordion: ^2.5.1
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,7 @@ flutter:
     - assets/images/on_boarding_images/
     - assets/images/welcome_images/
     - assets/images/forgot_password_images/
+    - assets/images/request_images_sample/
     - assets/images/avatar/
     - assets/logos/
   # An image asset can refer to one or more resolution-specific "variants", see

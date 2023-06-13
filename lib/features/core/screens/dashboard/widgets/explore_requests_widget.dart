@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_ease/constants/sizes.dart';
 import 'package:social_ease/features/core/controllers/request_controller.dart';
+import 'package:social_ease/features/core/screens/requests/request_details_screen.dart';
 import 'package:social_ease/models/request_model.dart';
 
 import '../../../../../constants/colors.dart';
@@ -38,32 +39,38 @@ class ExploreRequestsWidget extends StatelessWidget {
                     shrinkWrap: true,
                     itemCount: snapshot.data!.length,
                     itemBuilder: (c, index) {
-                      return Card(
-                        elevation: 3,
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                          ),
-                          margin: const EdgeInsets.all(10),
-                          width: 180,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                snapshot.data![index].title,
-                                style: txtTheme.titleMedium,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              const SizedBox(
-                                height: tDashboardPadding - 10,
-                              ),
-                              Text(snapshot.data![index].category),
-                              const SizedBox(
-                                height: tDashboardPadding - 10,
-                              ),
-                              Text("Location: ${snapshot.data![index].location}")
-                            ],
+                      return GestureDetector(
+                        onTap: () {
+                          Get.to(() =>
+                              RequestDetailsScreen(requestModel: snapshot.data![index]));
+                        },
+                        child: Card(
+                          elevation: 3,
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                            ),
+                            margin: const EdgeInsets.all(10),
+                            width: 180,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  snapshot.data![index].title,
+                                  style: txtTheme.titleMedium,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                const SizedBox(
+                                  height: tDashboardPadding - 10,
+                                ),
+                                Text(snapshot.data![index].category),
+                                const SizedBox(
+                                  height: tDashboardPadding - 10,
+                                ),
+                                Text("Location: ${snapshot.data![index].location}")
+                              ],
+                            ),
                           ),
                         ),
                       );

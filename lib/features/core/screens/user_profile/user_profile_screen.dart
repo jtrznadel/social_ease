@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_ease/constants/sizes.dart';
 import 'package:social_ease/features/authentication/controllers/login_controller.dart';
+import 'package:social_ease/features/core/screens/faq/faq_screen.dart';
 import 'package:social_ease/features/core/screens/user_profile/update_user_profile_screen.dart';
 import 'package:social_ease/features/core/screens/user_profile/widgets/user_avatar_widget.dart';
 import 'package:social_ease/features/core/screens/user_profile/widgets/user_profile_button_widget.dart';
@@ -39,7 +40,9 @@ class UserProfileScreen extends StatelessWidget {
           UserProfileButtonWidget(
             title: "Help Center",
             icon: const Icon(Icons.help_outline_outlined, color: Colors.black),
-            press: () {},
+            press: () {
+              Get.to(() => const FaqScreen());
+            },
           ),
           UserProfileButtonWidget(
             title: "Log Out",

@@ -26,3 +26,7 @@ const String tProfileAvatarR3 = "assets/images/avatar/avatar_image_r3.jpg";
 const String tProfileAvatarR4 = "assets/images/avatar/avatar_image_r4.jpg";
 const String tProfileAvatarR5 = "assets/images/avatar/avatar_image_r5.jpg";
 const String tProfileAvatarR6 = "assets/images/avatar/avatar_image_r6.jpg";
+
+// -- Request Images
+const String tRequestBgSample =
+    "assets/images/request_images_sample/request_bg_sample.jpg";

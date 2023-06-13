@@ -15,7 +15,7 @@ class TAppTheme {
           titleLarge: GoogleFonts.montserrat(
               color: const Color(0xFFF9A826), fontWeight: FontWeight.bold),
           bodyMedium: GoogleFonts.montserrat(color: Colors.black),
-          bodyLarge: GoogleFonts.montserrat(color: Colors.black),
+          bodyLarge: GoogleFonts.poppins(color: Colors.black),
           bodySmall: GoogleFonts.montserrat(color: Colors.black)),
       elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
       outlinedButtonTheme: TOutlinedButtonTheme.lightOutlinedButtonTheme,
