@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quickalert/quickalert.dart';
 import 'package:social_ease/constants/colors.dart';
 import 'package:social_ease/constants/image_strings.dart';
 import 'package:social_ease/constants/sizes.dart';
+import 'package:social_ease/features/core/controllers/request_controller.dart';
+import 'package:social_ease/features/core/controllers/user_profile_controller.dart';
+import 'package:social_ease/features/core/screens/requests/request_edit_screen.dart';
 import 'package:social_ease/models/request_model.dart';
 
 import 'widgets/tag_section_widget.dart';
@@ -14,6 +18,8 @@ class RequestDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(UserProfileController());
+    final requestController = Get.put(RequestController());
     final size = MediaQuery.of(context).size;
     return Scaffold(
         extendBodyBehindAppBar: true,
@@ -113,8 +119,55 @@ class RequestDetailsScreen extends StatelessWidget {
                                   ],
                                 ),
                                 const SizedBox(
-                                  height: 5,
+                                  height: tDashboardPadding,
                                 ),
+                                controller.getUserId() == requestModel.createdBy
+                                    ? Row(
+                                        children: [
+                                          Expanded(
+                                            child: ElevatedButton.icon(
+                                                onPressed: () => Get.to(RequestEditScreen(
+                                                    requestModel: requestModel)),
+                                                style: ElevatedButton.styleFrom(
+                                                    backgroundColor: Colors.lightBlue,
+                                                    shape: RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius.circular(100)),
+                                                    side: const BorderSide(
+                                                        color: Colors.transparent)),
+                                                icon: const Icon(Icons.edit),
+                                                label: const Text("Edit")),
+                                          ),
+                                          const SizedBox(
+                                            width: 15,
+                                          ),
+                                          Expanded(
+                                            child: ElevatedButton.icon(
+                                                onPressed: () => QuickAlert.show(
+                                                    context: context,
+                                                    type: QuickAlertType.confirm,
+                                                    text: "Are you sure?",
+                                                    confirmBtnText: "Yes",
+                                                    cancelBtnText: "No",
+                                                    onCancelBtnTap: () =>
+                                                        Navigator.pop(context),
+                                                    onConfirmBtnTap: () =>
+                                                        requestController.deleteRequest(
+                                                            requestModel.id!)),
+                                                style: ElevatedButton.styleFrom(
+                                                    backgroundColor: Colors.red[300],
+                                                    shape: RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius.circular(100)),
+                                                    side: const BorderSide(
+                                                        color: Colors.transparent)),
+                                                icon: const Icon(
+                                                    Icons.remove_circle_outline_rounded),
+                                                label: const Text("Remove")),
+                                          )
+                                        ],
+                                      )
+                                    : Container()
                               ],
                             ),
                           ),

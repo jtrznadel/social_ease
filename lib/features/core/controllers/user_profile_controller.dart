@@ -37,4 +37,9 @@ class UserProfileController extends GetxController {
     Get.back();
     Get.snackbar("Profile Updated", "Profile has been successfully updated");
   }
+
+  getUserId() {
+    final userId = _authRepo.getUserId();
+    return userId;
+  }
 }

@@ -19,9 +19,7 @@ class FormHeaderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: tDefaultSize + 10),
-        SizedBox(
-            height: size.height * imageScale, child: SvgPicture.asset(image)),
+        SizedBox(height: size.height * imageScale, child: SvgPicture.asset(image)),
         const SizedBox(height: tDefaultSize),
         Text(
           title,

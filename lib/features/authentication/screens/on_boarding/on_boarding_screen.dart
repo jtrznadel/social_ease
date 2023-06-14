@@ -4,6 +4,7 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:social_ease/features/authentication/controllers/on_boarding_controller.dart';
 import 'package:social_ease/features/authentication/screens/welcome/welcome_screen.dart';
+import 'package:social_ease/features/core/screens/faq/faq_screen.dart';
 
 //ignore: must_be_immutable
 class OnBoardingScreen extends StatelessWidget {
@@ -42,14 +43,23 @@ class OnBoardingScreen extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            top: 50,
+            left: 10,
+            child: IconButton(
+              onPressed: () => Get.to(() => const FaqScreen()),
+              icon: const Icon(Icons.help_outline_rounded),
+              iconSize: 30,
+            ),
+          ),
           Obx(
             () => Positioned(
                 bottom: 12.0,
                 child: AnimatedSmoothIndicator(
                   activeIndex: obController.currentPage.value,
                   count: 3,
-                  effect: const WormEffect(
-                      activeDotColor: Colors.black87, dotHeight: 7.0),
+                  effect:
+                      const WormEffect(activeDotColor: Colors.black87, dotHeight: 7.0),
                 )),
           ),
         ],
@@ -76,8 +86,8 @@ class MoveToWelcomeButton extends StatelessWidget {
               foregroundColor: Colors.white),
           child: Container(
             padding: const EdgeInsets.all(20.0),
-            decoration: const BoxDecoration(
-                color: Colors.black45, shape: BoxShape.circle),
+            decoration:
+                const BoxDecoration(color: Colors.black45, shape: BoxShape.circle),
             child: const Icon(Icons.arrow_forward_ios),
           ),
         ));

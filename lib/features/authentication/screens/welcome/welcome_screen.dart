@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:social_ease/constants/sizes.dart';
 import 'package:social_ease/constants/text_strings.dart';
 import 'package:social_ease/features/authentication/screens/login/login_screen.dart';
+import 'package:social_ease/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:social_ease/features/authentication/screens/signup/signup_screen.dart';
 
 import '../../../../constants/image_strings.dart';
@@ -15,13 +16,21 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+            onPressed: () => Get.to(() => const OnBoardingScreen()),
+            icon: const Icon(
+              Icons.arrow_back_ios_rounded,
+              color: Colors.black,
+            )),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: Container(
         padding: const EdgeInsets.all(tDefaultSize),
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          SizedBox(
-              height: size.height * 0.5,
-              child: SvgPicture.asset(tWelcomeImage)),
+        child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          SizedBox(height: size.height * 0.5, child: SvgPicture.asset(tWelcomeImage)),
           Column(
             children: [
               Text(

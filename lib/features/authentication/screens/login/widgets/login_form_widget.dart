@@ -62,9 +62,6 @@ class LoginForm extends StatelessWidget {
                       },
                       style: TextButton.styleFrom(foregroundColor: tPrimaryColor),
                       child: const Text("Forgot Password?"))),
-              const SizedBox(
-                height: tFormHeight,
-              ),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(

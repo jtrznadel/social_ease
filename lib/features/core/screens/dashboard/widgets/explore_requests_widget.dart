@@ -64,7 +64,11 @@ class ExploreRequestsWidget extends StatelessWidget {
                                 const SizedBox(
                                   height: tDashboardPadding - 10,
                                 ),
-                                Text(snapshot.data![index].category),
+                                Text(
+                                  snapshot.data![index].category,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                                 const SizedBox(
                                   height: tDashboardPadding - 10,
                                 ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_ease/constants/sizes.dart';
 import 'package:social_ease/features/core/controllers/request_controller.dart';
+import 'package:social_ease/features/core/screens/requests/request_details_screen.dart';
 import 'package:social_ease/models/request_model.dart';
 
 class RequestsScreen extends StatefulWidget {
@@ -63,34 +64,39 @@ class _RequestsScreenState extends State<RequestsScreen> {
                 itemCount: requests.length,
                 itemBuilder: (BuildContext context, int index) {
                   final request = requests[index];
-                  return Material(
-                    elevation: 5,
-                    child: Container(
-                      padding:
-                          const EdgeInsets.only(top: 15, right: 10, bottom: 15, left: 10),
-                      child: ListTile(
-                        title: Text(
-                          request.title,
-                          style: Theme.of(context).textTheme.titleMedium,
-                          textAlign: TextAlign.center,
-                        ),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const SizedBox(
-                              height: tDashboardPadding - 10,
-                            ),
-                            Text(
-                              request.description,
-                              textAlign: TextAlign.justify,
-                            ),
-                            const SizedBox(
-                              height: tDashboardPadding - 10,
-                            ),
-                            Text(
-                              'Location: ${request.location}',
-                            ),
-                          ],
+                  return GestureDetector(
+                    onTap: () => Get.to(RequestDetailsScreen(
+                      requestModel: request,
+                    )),
+                    child: Material(
+                      elevation: 5,
+                      child: Container(
+                        padding: const EdgeInsets.only(
+                            top: 15, right: 10, bottom: 15, left: 10),
+                        child: ListTile(
+                          title: Text(
+                            request.title,
+                            style: Theme.of(context).textTheme.titleMedium,
+                            textAlign: TextAlign.center,
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(
+                                height: tDashboardPadding - 10,
+                              ),
+                              Text(
+                                request.description,
+                                textAlign: TextAlign.justify,
+                              ),
+                              const SizedBox(
+                                height: tDashboardPadding - 10,
+                              ),
+                              Text(
+                                'Location: ${request.location}',
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

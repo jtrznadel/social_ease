@@ -32,6 +32,7 @@ class RequestModel {
   factory RequestModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
     final data = document.data()!;
     return RequestModel(
+        id: data['id'],
         title: data['title'],
         description: data["description"],
         category: data["category"],
