@@ -48,6 +48,6 @@ class RequestController extends GetxController {
     Get.to(() => const NavigationProfile());
 
     Get.snackbar("Request Deleted", "Request has been successfully deleted",
-        margin: const EdgeInsets.all(10), backgroundColor: Colors.red.withOpacity(0.4));
+        margin: const EdgeInsets.all(10), backgroundColor: Colors.green.withOpacity(0.4));
   }
 }

@@ -5,6 +5,8 @@ import 'package:social_ease/repository/authentication_repository/authentication_
 class LogInController extends GetxController {
   static LogInController get instance => Get.find();
 
+  bool isPasswordObscured = true;
+
   final email = TextEditingController();
   final password = TextEditingController();
 

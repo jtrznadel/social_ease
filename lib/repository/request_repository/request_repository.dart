@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_ease/models/request_model.dart';
+
+import '../../features/core/navigation_profile.dart';
 
 class RequestRepository extends GetxController {
   static RequestRepository get instance => Get.find();
@@ -8,8 +11,18 @@ class RequestRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   Future<void> createRequest(RequestModel request) async {
-    final docRef = await _db.collection('requests').add(request.toJson());
-    await _db.collection("requests").doc(docRef.id).update({'id': docRef.id});
+    try {
+      final docRef = await _db.collection('requests').add(request.toJson());
+      await _db.collection("requests").doc(docRef.id).update({'id': docRef.id});
+      Get.to(() => const NavigationProfile());
+      Get.snackbar(
+          "Request successfully created", "Request has been successfully created",
+          margin: const EdgeInsets.all(10),
+          backgroundColor: Colors.green.withOpacity(0.3));
+    } catch (e) {
+      Get.snackbar("Something went wrong", "Check all given data",
+          margin: const EdgeInsets.all(10), backgroundColor: Colors.red.withOpacity(0.3));
+    }
   }
 
   Future<List<RequestModel>> getUserRequests(userId) async {

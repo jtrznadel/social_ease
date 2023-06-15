@@ -7,11 +7,16 @@ import '../../../../../constants/sizes.dart';
 import '../../forgot_password/widgets/forgot_password_modal_widget.dart';
 import '../login_screen.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({
     super.key,
   });
 
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LogInController());
@@ -25,6 +30,13 @@ class LoginForm extends StatelessWidget {
             children: [
               TextFormField(
                 controller: controller.email,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter e-mail.';
+                  } else {
+                    return null;
+                  }
+                },
                 decoration: const InputDecoration(
                   prefixIcon: Icon(
                     Icons.person_outline_outlined,
@@ -37,16 +49,30 @@ class LoginForm extends StatelessWidget {
               ),
               TextFormField(
                 controller: controller.password,
-                decoration: const InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.fingerprint_outlined,
-                    ),
-                    labelText: "Password",
-                    suffixIcon: IconButton(
-                        onPressed: null,
-                        icon: Icon(
-                          Icons.remove_red_eye_outlined,
-                        ))),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter password.';
+                  } else {
+                    return null;
+                  }
+                },
+                obscureText: controller.isPasswordObscured,
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(
+                    Icons.fingerprint_outlined,
+                  ),
+                  labelText: "Password",
+                  suffixIcon: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        controller.isPasswordObscured = !controller.isPasswordObscured;
+                      });
+                    },
+                    child: Icon(controller.isPasswordObscured
+                        ? Icons.remove_red_eye_outlined
+                        : Icons.visibility_off_outlined),
+                  ),
+                ),
               ),
               const SizedBox(
                 height: tFormHeight - 20,

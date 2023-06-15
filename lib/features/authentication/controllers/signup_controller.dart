@@ -6,6 +6,9 @@ import 'package:social_ease/repository/authentication_repository/authentication_
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
 
+  bool isPasswordObscured = true;
+  bool isConfirmPasswordObscured = true;
+
   final username = TextEditingController();
   final email = TextEditingController();
   final phoneNumber = TextEditingController();
@@ -14,5 +17,9 @@ class SignUpController extends GetxController {
 
   void registerUser(UserModel user) {
     AuthenticationRepository.instance.createUserWithEmailAndPassword(user);
+  }
+
+  bool arePasswordsSame(String password, String confirmPassword) {
+    return AuthenticationRepository.instance.arePasswordsSame(password, confirmPassword);
   }
 }

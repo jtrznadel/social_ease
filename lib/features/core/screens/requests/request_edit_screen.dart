@@ -17,6 +17,7 @@ class _RequestEditScreenState extends State<RequestEditScreen> {
   final ValueNotifier<String> title = ValueNotifier('');
   final ValueNotifier<String> description = ValueNotifier('');
   final ValueNotifier<String> location = ValueNotifier('');
+  final ValueNotifier<String> id = ValueNotifier('');
 
   @override
   void initState() {
@@ -24,6 +25,7 @@ class _RequestEditScreenState extends State<RequestEditScreen> {
     title.value = widget.requestModel.title;
     description.value = widget.requestModel.description;
     location.value = widget.requestModel.location;
+    id.value = widget.requestModel.id!;
   }
 
   @override

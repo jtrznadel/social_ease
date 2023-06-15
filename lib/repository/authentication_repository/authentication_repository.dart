@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:social_ease/features/authentication/screens/login/login_screen.dart';
 import 'package:social_ease/features/authentication/screens/welcome/welcome_screen.dart';
@@ -41,10 +42,14 @@ class AuthenticationRepository extends GetxController {
       firebaseUser.value != null
           ? Get.offAll(() => const LoginScreen())
           : Get.to(() => const WelcomeScreen());
+      Get.snackbar("User registered", "User has been successfully registered",
+          margin: const EdgeInsets.all(10),
+          backgroundColor: Colors.green.withOpacity(0.3));
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
-      throw ex;
+      Get.snackbar("Something went wrong", ex.message,
+          margin: const EdgeInsets.all(10), backgroundColor: Colors.red.withOpacity(0.3));
     } catch (_) {
       const ex = SignUpWithEmailAndPasswordFailure();
       print('EXCEPTION - ${ex.message}');
@@ -55,7 +60,16 @@ class AuthenticationRepository extends GetxController {
   Future<void> loginUserWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-    } catch (_) {}
+    } on FirebaseAuthException catch (e) {
+      final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
+      print('FIREBASE AUTH EXCEPTION - ${ex.message}');
+      Get.snackbar("Something went wrong", ex.message,
+          margin: const EdgeInsets.all(10), backgroundColor: Colors.red.withOpacity(0.3));
+    } catch (_) {
+      const ex = SignUpWithEmailAndPasswordFailure();
+      print('EXCEPTION - ${ex.message}');
+      throw ex;
+    }
   }
 
   Future<void> logout() async => await _auth.signOut();
@@ -64,5 +78,14 @@ class AuthenticationRepository extends GetxController {
     User? user = FirebaseAuth.instance.currentUser;
     String userId = user?.uid ?? '';
     return userId;
+  }
+
+  bool arePasswordsSame(String password, String confirmPassword) {
+    if (password == confirmPassword) {
+      return true;
+    }
+    Get.snackbar("Something went wrong", "Passwords are not equal",
+        margin: const EdgeInsets.all(10), backgroundColor: Colors.red.withOpacity(0.3));
+    return false;
   }
 }

@@ -4,8 +4,6 @@ import 'package:social_ease/constants/sizes.dart';
 import 'package:social_ease/features/core/controllers/request_controller.dart';
 import 'package:social_ease/models/request_model.dart';
 
-import '../../navigation_profile.dart';
-
 class RequestCreateScreen extends StatefulWidget {
   const RequestCreateScreen({super.key});
 
@@ -55,6 +53,13 @@ class _RequestCreateScreenState extends State<RequestCreateScreen> {
               children: [
                 TextFormField(
                   controller: controller.title,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter title.';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: const InputDecoration(
                     labelText: "Title",
                     prefixIcon: Icon(Icons.title_rounded),
@@ -65,6 +70,13 @@ class _RequestCreateScreenState extends State<RequestCreateScreen> {
                 ),
                 TextFormField(
                   controller: controller.description,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter description.';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: const InputDecoration(
                     labelText: "Description",
                     prefixIcon: Icon(Icons.description_outlined),
@@ -106,6 +118,13 @@ class _RequestCreateScreenState extends State<RequestCreateScreen> {
                 ),
                 TextFormField(
                   controller: controller.location,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter location.';
+                    } else {
+                      return null;
+                    }
+                  },
                   decoration: const InputDecoration(
                     labelText: "Location",
                     prefixIcon: Icon(Icons.location_on_outlined),
@@ -130,11 +149,12 @@ class _RequestCreateScreenState extends State<RequestCreateScreen> {
                               createdAt: DateTime.now().toString(),
                               createdBy: controller.getUserId());
                           await controller.createRequest(request);
+                          resetForm();
+                        } else {
+                          Get.snackbar("Something went wrong", "Check all given data",
+                              margin: const EdgeInsets.all(10),
+                              backgroundColor: Colors.red.withOpacity(0.3));
                         }
-                        resetForm();
-                        Get.to(() => const NavigationProfile());
-                        Get.snackbar("Request successfully created",
-                            "Request has been successfully created");
                       },
                       child: Text(
                         "Submit",

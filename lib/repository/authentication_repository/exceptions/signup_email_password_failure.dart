@@ -1,8 +1,7 @@
 class SignUpWithEmailAndPasswordFailure {
   final String message;
 
-  const SignUpWithEmailAndPasswordFailure(
-      [this.message = "An Unknown error occurred."]);
+  const SignUpWithEmailAndPasswordFailure([this.message = "An Unknown error occurred."]);
 
   factory SignUpWithEmailAndPasswordFailure.code(String code) {
     switch (code) {
@@ -21,6 +20,9 @@ class SignUpWithEmailAndPasswordFailure {
       case 'user-disabled':
         return const SignUpWithEmailAndPasswordFailure(
             "This user has been disabled. Contact support for help");
+      case 'user-not-found':
+        return const SignUpWithEmailAndPasswordFailure(
+            "There is no user found with the provided credentials.");
       default:
         return const SignUpWithEmailAndPasswordFailure();
     }
