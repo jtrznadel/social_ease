@@ -54,12 +54,12 @@ class OnBoardingScreen extends StatelessWidget {
           ),
           Obx(
             () => Positioned(
-                bottom: 12.0,
+                bottom: 18.0,
                 child: AnimatedSmoothIndicator(
                   activeIndex: obController.currentPage.value,
                   count: 3,
-                  effect:
-                      const WormEffect(activeDotColor: Colors.black87, dotHeight: 7.0),
+                  effect: const WormEffect(
+                      activeDotColor: Colors.black87, dotHeight: 7.0),
                 )),
           ),
         ],
@@ -86,8 +86,8 @@ class MoveToWelcomeButton extends StatelessWidget {
               foregroundColor: Colors.white),
           child: Container(
             padding: const EdgeInsets.all(20.0),
-            decoration:
-                const BoxDecoration(color: Colors.black45, shape: BoxShape.circle),
+            decoration: const BoxDecoration(
+                color: Colors.black45, shape: BoxShape.circle),
             child: const Icon(Icons.arrow_forward_ios),
           ),
         ));

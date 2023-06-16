@@ -39,7 +39,7 @@ class OnBoardingPageWidget extends StatelessWidget {
           ],
         ),
         Text(model.counterIndicator),
-        SizedBox(height: size.height * 0.1)
+        SizedBox(height: size.height * 0.08)
       ]),
     );
   }

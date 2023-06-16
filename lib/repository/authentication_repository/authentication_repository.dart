@@ -32,7 +32,10 @@ class AuthenticationRepository extends GetxController {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: userModel.email, password: userModel.password);
       User? userToDoc = result.user;
-      await FirebaseFirestore.instance.collection('users').doc(userToDoc!.uid).set({
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(userToDoc!.uid)
+          .set({
         'userName': userModel.userName,
         'firstName': userModel.firstName,
         'lastName': userModel.lastName,
@@ -49,7 +52,8 @@ class AuthenticationRepository extends GetxController {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
       Get.snackbar("Something went wrong", ex.message,
-          margin: const EdgeInsets.all(10), backgroundColor: Colors.red.withOpacity(0.3));
+          margin: const EdgeInsets.all(10),
+          backgroundColor: Colors.red.withOpacity(0.3));
     } catch (_) {
       const ex = SignUpWithEmailAndPasswordFailure();
       print('EXCEPTION - ${ex.message}');
@@ -57,14 +61,16 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  Future<void> loginUserWithEmailAndPassword(String email, String password) async {
+  Future<void> loginUserWithEmailAndPassword(
+      String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
       print('FIREBASE AUTH EXCEPTION - ${ex.message}');
       Get.snackbar("Something went wrong", ex.message,
-          margin: const EdgeInsets.all(10), backgroundColor: Colors.red.withOpacity(0.3));
+          margin: const EdgeInsets.all(10),
+          backgroundColor: Colors.red.withOpacity(0.3));
     } catch (_) {
       const ex = SignUpWithEmailAndPasswordFailure();
       print('EXCEPTION - ${ex.message}');
@@ -85,7 +91,8 @@ class AuthenticationRepository extends GetxController {
       return true;
     }
     Get.snackbar("Something went wrong", "Passwords are not equal",
-        margin: const EdgeInsets.all(10), backgroundColor: Colors.red.withOpacity(0.3));
+        margin: const EdgeInsets.all(10),
+        backgroundColor: Colors.red.withOpacity(0.3));
     return false;
   }
 }

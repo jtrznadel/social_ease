@@ -13,45 +13,51 @@ class UserProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LogInController());
-    return Padding(
-      padding: const EdgeInsets.all(tDashboardPadding * 2),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const UserAvatarWidget(),
-          const SizedBox(
-            height: tDashboardPadding * 2,
-          ),
-          UserProfileButtonWidget(
-            title: "Edit Profile",
-            icon: const Icon(Icons.account_circle_outlined, color: Colors.black),
-            press: () => Get.to(const UpdateUserProfileScreen()),
-          ),
-          UserProfileButtonWidget(
-            title: "Settings",
-            icon: const Icon(Icons.settings_suggest_outlined, color: Colors.black),
-            press: () {},
-          ),
-          UserProfileButtonWidget(
-            title: "Notifications",
-            icon: const Icon(Icons.notifications_active_outlined, color: Colors.black),
-            press: () {},
-          ),
-          UserProfileButtonWidget(
-            title: "Help Center",
-            icon: const Icon(Icons.help_outline_outlined, color: Colors.black),
-            press: () {
-              Get.to(() => const FaqScreen());
-            },
-          ),
-          UserProfileButtonWidget(
-            title: "Log Out",
-            icon: const Icon(Icons.logout_rounded, color: Colors.black),
-            press: () {
-              LogInController.instance.logoutUser();
-            },
-          ),
-        ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(tDashboardPadding * 2),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const UserAvatarWidget(),
+            const SizedBox(
+              height: tDashboardPadding * 2,
+            ),
+            UserProfileButtonWidget(
+              title: "Edit Profile",
+              icon: const Icon(Icons.account_circle_outlined,
+                  color: Colors.black),
+              press: () => Get.to(const UpdateUserProfileScreen()),
+            ),
+            UserProfileButtonWidget(
+              title: "Settings",
+              icon: const Icon(Icons.settings_suggest_outlined,
+                  color: Colors.black),
+              press: () {},
+            ),
+            UserProfileButtonWidget(
+              title: "Notifications",
+              icon: const Icon(Icons.notifications_active_outlined,
+                  color: Colors.black),
+              press: () {},
+            ),
+            UserProfileButtonWidget(
+              title: "Help Center",
+              icon:
+                  const Icon(Icons.help_outline_outlined, color: Colors.black),
+              press: () {
+                Get.to(() => const FaqScreen());
+              },
+            ),
+            UserProfileButtonWidget(
+              title: "Log Out",
+              icon: const Icon(Icons.logout_rounded, color: Colors.black),
+              press: () {
+                LogInController.instance.logoutUser();
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

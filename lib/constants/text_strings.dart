@@ -6,7 +6,7 @@ const String tOnBoardingSubTitle1 =
     "We foster collective efforts towards progress, empowering individuals to actively participate in initiatives that drive positive change, ensuring a brighter and more inclusive future for all.";
 const String tOnBoardingTitle2 = "Join the Movement, Make a Difference";
 const String tOnBoardingSubTitle2 =
-    "We bring people together, enabling them to contribute their skills and resources, driving meaningful change and making a difference in the lives of those in need.";
+    "We bring people together, enabling them to contribute their skills and resources, driving meaningful change and making a difference in the lives of those in need. Just join the community!";
 const String tOnBoardingTitle3 = "Be the Change, Join Our App";
 const String tOnBoardingSubTitle3 =
     "We give You opportunity to become an agent of positive transformation, where your actions have the power to make a lasting impact on communities and create a brighter future for all.";
@@ -45,7 +45,8 @@ const String tAppName = "socialEase";
 const String tFAQQuestion1 = "What kind of help can I offer through this app?";
 const String tFAQAnswer1 =
     "You can offer various types of assistance, such as volunteering your time and skills, donating food, clothing, or other essential items, providing mentorship or tutoring, or offering support in different community initiatives. The app connects you with individuals, organizations, and social service centers that require different forms of help.";
-const String tFAQQuestion2 = "How can I find specific types of assistance that I need?";
+const String tFAQQuestion2 =
+    "How can I find specific types of assistance that I need?";
 const String tFAQAnswer2 =
     "You can browse the available assistance categories, such as volunteering, food drives, clothing donations, mentorship, etc. If you are looking for a particular type of help, you can use the search feature to narrow down the results and find relevant listings matching your needs.";
 const String tFAQQuestion3 =
