@@ -27,7 +27,7 @@ class _ForgotPasswordModalWidgetState extends State<ForgotPasswordModalWidget> {
     return Padding(
       padding: MediaQuery.of(context).viewInsets,
       child: Container(
-        height: size.height * 0.5,
+        height: size.height * 0.52,
         padding: const EdgeInsets.all(tDefaultSize),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

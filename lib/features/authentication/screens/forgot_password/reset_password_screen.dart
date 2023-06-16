@@ -1,5 +1,6 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:social_ease/common_widgets/form/form_header_widget.dart';
 import 'package:social_ease/constants/colors.dart';
 import 'package:social_ease/constants/image_strings.dart';
@@ -21,6 +22,21 @@ class ResetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios_rounded,
+                color: Colors.black,
+              )),
+          title: Text(
+            "Reset password",
+            style: Theme.of(context).textTheme.titleLarge,
+          )),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(tDefaultSize),
