@@ -40,8 +40,7 @@ class ResetPasswordScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(tDefaultSize),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             const FormHeaderWidget(
                 imageScale: 0.2,
                 image: tForgotPasswordResetImage,
@@ -80,8 +79,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: tPrimaryColor),
+                        style: ElevatedButton.styleFrom(backgroundColor: tPrimaryColor),
                         onPressed: () {
                           triggerNotification();
                           Navigator.pop(context);
